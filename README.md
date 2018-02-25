@@ -7,7 +7,7 @@ for use with [godmode9](https://github.com/d0k3/GodMode9).
 ---
 
 1. [dump cartridge](gm9/scripts/dump%20cartridge.gm9)
-  - dump .3ds file as .cia from a CTR cartridge or dump .nds file from a NTR cartridge
+  - dump `.3ds` file as `.cia` from a CTR cartridge or dump `.nds` file from a NTR cartridge
 2. [extract pokémon game files](gm9/scripts/extract%20pokemon%20game%20files.gm9)
   - extract `romfs` or `.code` from the main/update title from any 3DS pokémon game installed as an SD title
 3. [reset activity log](gm9/scripts/reset%20activity%20log.gm9)
