@@ -8,8 +8,6 @@ if find C:/*.3ds CARTPATH
 		echo "Cartridge dump failed\n(cancelled by user)."
 		goto abort
 	end
-	strsplit -b NAME $[CARTPATH] "."
-	strsplit -f NAME $[NAME] "/"
 	buildcia $[CARTPATH]
 	echo "CTR cartridge dumped succesfully:\n$[GM9OUT]"
 	goto abort
