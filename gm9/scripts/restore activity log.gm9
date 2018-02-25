@@ -1,4 +1,4 @@
-# restore ptm and activity log data (USA/JPN/EUR only)
+# restore ptm and activity log data (USA/JPN/EUR/KOR only)
 # remove all titles and data logged by the ptm module and activity log
 # last update: 02/24/2018
 # https://github.com/zweilous/gm9scripts/
@@ -7,10 +7,12 @@ if chk "EUR" $[REGION]
     set ACTLOG 00020222
 elif chk "JPN" $[REGION]
     set ACTLOG 00020202
+elif chk "KOR" $[REGION]
+    set ACTLOG 00020272
 elif chk "USA" $[REGION]
     set ACTLOG 00020212
 else
-echo "This script is only valid for\nUSA/JPN/EUR region 3DS systems."
+echo "This script is only valid for\nUSA/JPN/EUR/KOR region 3DS systems."
 goto abort
 end
 
