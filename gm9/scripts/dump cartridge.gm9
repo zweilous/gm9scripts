@@ -5,7 +5,7 @@
 
 if find C:/*.3ds CARTPATH
 	if not ask "This will dump the .3ds file to .cia\nfrom the inserted CTR cartridge.\nContinue?"
-		echo "Cartridge dump failed (cancelled by user)."
+		echo "Cartridge dump failed\n(cancelled by user)."
 		goto abort
 	end
 	strsplit -b NAME $[CARTPATH] "."
@@ -15,7 +15,7 @@ if find C:/*.3ds CARTPATH
 	goto abort
 elif find C:/*.nds CARTPATH
 	if not ask "This will dump the .nds file\nfrom the inserted NTR cartridge.\nContinue?"
-		echo "Cartridge dump failed (cancelled by user)."
+		echo "Cartridge dump failed\n(cancelled by user)."
 		goto abort
 	end
 	strsplit -b -f NAME $[CARTPATH] "."
