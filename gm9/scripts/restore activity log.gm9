@@ -1,6 +1,6 @@
 # restore ptm and activity log data (USA/JPN/EUR/KOR only)
 # remove all titles and data logged by the ptm module and activity log
-# last update: 02/24/2018
+# last update: 02/25/2018
 # https://github.com/zweilous/gm9scripts/
 
 if chk "EUR" $[REGION]
@@ -35,7 +35,7 @@ end
 if not ask "Restore this PTM backup?\n$[RESTORE]"
 	goto start
 end
-if not ask "WARNING: This will override your existing data.\nContinue?"
+if not ask "WARNING: This will override\nyour existing data.\nContinue?"
 	goto start
 end
 if not allow -a 1:/
@@ -54,7 +54,7 @@ end
 if not ask "Restore this Activity Log backup?\n$[RESTORE]"
 	goto start
 end
-if not ask "WARNING: This will override your existing data.\nContinue?"
+if not ask "WARNING: This will override\nyour existing data.\nContinue?"
 	goto start
 end
 if not allow -a 1:/
