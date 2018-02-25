@@ -1,6 +1,6 @@
 # extract pokemon game files
 # extract romfs or .code from the specified pokemon game
-# last update: 02/24/2018
+# last update: 02/25/2018
 # https://github.com/zweilous/gm9scripts/
 
 @start
@@ -73,8 +73,9 @@ if not filesel "Select a file to extract .code from." A:/title/$[TIDHIGH]/$[TIDL
 	goto start
 end
 imgmount $[MOUNT]
-cp G:/exefs/.code $[GM9OUT]/$[TIDHIGH]$[TIDLOW]_code.bin
-echo "$[GAME] .code extracted to:\n$[GM9OUT]/$[TIDHIGH]$[TIDLOW]_code.bin"
+set OUTPATH $[GM9OUT]/$[TIDHIGH]$[TIDLOW]_code.bin
+cp G:/exefs/.code $[OUTPATH]
+echo "$[GAME] .code extracted to:\n$[OUTPATH]"
 goto abort
 
 # romfs
@@ -83,8 +84,9 @@ if not filesel "Select a file to extract romfs from." A:/title/$[TIDHIGH]/$[TIDL
 	goto start
 end
 imgmount $[MOUNT]
-cp G:/romfs $[GM9OUT]/$[TIDHIGH]$[TIDLOW]_romfs
-echo "$[GAME] romfs extracted to:\n$[GM9OUT]/$[TIDHIGH]$[TIDLOW]_romfs"
+set OUTPATH $[GM9OUT]/$[TIDHIGH]$[TIDLOW]_romfs
+cp G:/romfs $[OUTPATH]
+echo "$[GAME] romfs extracted to:\n$[OUTPATH]"
 goto abort
 
 # abort
