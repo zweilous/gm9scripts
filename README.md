@@ -6,8 +6,8 @@ for use with [godmode9](https://github.com/d0k3/GodMode9).
 
 ---
 
-1. [extract pokémon game `.code`](gm9/scripts/extract%20pokemon%20game%20.code.gm9)
-  - extract `.code` from the main or update title from any 3DS pokémon game installed as an SD title
+1. [extract pokémon game files](gm9/scripts/extract%20pokemon%20game%20files.gm9)
+  - extract `romfs` or `.code` from the main/update title from any 3DS pokémon game installed as an SD title
 2. [reset activity log](gm9/scripts/reset%20activity%20log.gm9)
   - for use with USA/JPN/EUR/KOR systems only
   - create a backup of ptm or activity log savedata on sysnand
