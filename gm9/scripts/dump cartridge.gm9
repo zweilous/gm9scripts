@@ -5,23 +5,25 @@
 
 if find C:/*.3ds CARTPATH
 	if not ask "This will dump the .3ds file to .cia\nfrom the inserted CTR cartridge.\nContinue?"
-		echo "Returning to menu..."
+		echo "Cartridge dump failed (cancelled by user)."
 		goto abort
 	end
 	strsplit -b NAME $[CARTPATH] "."
 	strsplit -f NAME $[NAME] "/"
 	buildcia $[CARTPATH]
-	echo "CTR cartridge dumped succesfully:\n$[GM9OUT]/$[NAME].cia"
+	echo "CTR cartridge dumped succesfully\nin $[GM9OUT]"
+	goto abort
 elif find C:/*.nds CARTPATH
 	if not ask "This will dump the .nds file\nfrom the inserted NTR cartridge.\nContinue?"
-		echo "Returning to menu..."
+		echo "Cartridge dump failed (cancelled by user)."
 		goto abort
 	end
 	strsplit -b -f NAME $[CARTPATH] "."
 	strsplit -f NAME $[NAME] "/"
 	findnot $[GM9OUT]/$[DATESTAMP]_$[NAME]_???.nds OUTPATH
 	cp $[CARTPATH] $[OUTPATH]
-	echo "NTR cartridge dumped succesfully:\n$[OUTPATH]"
+	echo "NTR cartridge dumped succesfully\nin $[GM9OUT]"
+	goto abort
 else
 	echo "Invalid cartridge inserted.\nCannot create a dump file."
 end
