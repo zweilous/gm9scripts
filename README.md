@@ -11,10 +11,10 @@ for use with [godmode9](https://github.com/d0k3/GodMode9).
 2. [reset activity log](gm9/scripts/reset%20activity%20log.gm9)
   - for use with USA/JPN/EUR/KOR systems only
   - create a backup of ptm or activity log savedata on sysnand
-    - saves in output folder with the following format: `mmddyy_serial_title_###`
+    - saves in output folder with the following format: `yymmdd_serial_title_###`
   - delete existing ptm and activity log savedata
 3. [restore activity log](gm9/scripts/restore%20activity%20log.gm9)
   - for use with USA/JPN/EUR/KOR systems only
   - restore a backup of ptm or activity log savedata on sysnand
-    - must be located in the output folder with the following format: `mmddyy_serial_title_###`
+    - must be located in the output folder with the following format: `yymmdd_serial_title_###`
     - to be used with the backup functions from the "[reset activity log](gm9/scripts/reset%20activity%20log.gm9)" script
