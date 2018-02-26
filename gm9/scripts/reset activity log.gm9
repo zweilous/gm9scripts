@@ -9,7 +9,7 @@ if not ask "Create a PTM and Activity Log\nsavedata backup in\n$[GM9OUT]?"
 	goto abort
 end
 if chk "CHN" $[REGION]
-	set ACTLOG 00026200
+	set ACTLOG 00020262
 elif chk "EUR" $[REGION]
 	set ACTLOG 00020222
 elif chk "JPN" $[REGION]
@@ -19,7 +19,7 @@ elif chk "KOR" $[REGION]
 elif chk "USA" $[REGION]
 	set ACTLOG 00020212
 elif chk "TWN" $[REGION]
-	set ACTLOG 00028200
+	set ACTLOG 00020282
 end
 findnot $[GM9OUT]/$[DATESTAMP]_$[SERIAL]_00010022_??? OUTPATH
 cp 1:/data/$[SYSID0]/sysdata/00010022/00000000 $[OUTPATH]

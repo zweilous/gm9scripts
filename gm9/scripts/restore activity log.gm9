@@ -36,7 +36,7 @@ goto start
 # restore activity log data
 @re_restore_activity_log_data
 if chk "CHN" $[REGION]
-	set ACTLOG 00026200
+	set ACTLOG 00020262
 elif chk "EUR" $[REGION]
 	set ACTLOG 00020222
 elif chk "JPN" $[REGION]
@@ -46,7 +46,7 @@ elif chk "KOR" $[REGION]
 elif chk "USA" $[REGION]
 	set ACTLOG 00020212
 elif chk "TWN" $[REGION]
-	set ACTLOG 00028200
+	set ACTLOG 00020282
 end
 if not filesel "Select an Activity Log savedata backup." $[GM9OUT]/??????_$[SERIAL]_$[ACTLOG]_??? RESTORE
 	goto start
