@@ -3,10 +3,10 @@
 # last update: 02/25/2018
 # https://github.com/zweilous/gm9scripts/
 
-# activity log and ptm backup
+# ptm and activity log backup
 if not ask "Create a PTM and Activity Log\nsavedata backup in\n$[GM9OUT]?"
 	echo "PTM and Activity Log\nbackup not created."
-	goto abort
+	goto reset
 end
 if chk "CHN" $[REGION]
 	set ACTLOG 00020262
@@ -29,6 +29,7 @@ cp 1:/data/$[SYSID0]/sysdata/$[ACTLOG]/00000000 $[OUTPATH]
 echo "Activity Log backup created succesfully:\n$[OUTPATH]"
 
 # delete ptm and activity log data
+@reset
 if not ask "This will clear all data from the\nPTM module and Activity Log.\nContinue?"
 	echo "PTM and Activity Log reset failed."
 	goto abort
