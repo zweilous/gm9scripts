@@ -1,0 +1,36 @@
+# clear home menu icon cache
+# clear home menu icon cache saved on the system
+# last changed: 02/25/2018
+# https://github.com/zweilous/gm9scripts
+
+set ERROR "HOME menu icon cache not cleared."
+
+if not ask "This will clear the HOME menu icon cache.\nContinue?"
+	echo $[ERROR]
+	goto abort
+end
+find -f "0:/Nintendo 3DS/$[SYSID0]/*" DIR
+if chk "CHN" $[REGION]
+	set LOC 000000a1
+elif chk "EUR" $[REGION]
+	set LOC 00000098
+elif chk "JPN" $[REGION]
+	set LOC 00000082
+elif chk "KOR" $[REGION]
+	set LOC 000000a9
+elif chk "USA" $[REGION]
+	set LOC 0000008f
+elif chk "TWN" $[REGION]
+	set LOC 000000b1
+end
+set DIR "$[DIR]/extdata/00000000/$[LOC]/00000000"
+
+if rm "$[DIR]/00000004"
+	rm "$[DIR]/00000005"
+	echo "HOME menu icon cache cleared."
+else
+	echo $[ERROR]
+end
+
+# abort
+@abort
