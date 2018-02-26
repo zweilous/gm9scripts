@@ -1,27 +1,26 @@
-# clear ptm and activity log data (USA/JPN/EUR/KOR only)
+# clear ptm and activity log data (any region)
 # remove all titles and data logged by the ptm module and activity log
 # last update: 02/25/2018
 # https://github.com/zweilous/gm9scripts/
-
-if chk "EUR" $[REGION]
-    set ACTLOG 00020222
-elif chk "JPN" $[REGION]
-    set ACTLOG 00020202
-elif chk "KOR" $[REGION]
-    set ACTLOG 00020272
-elif chk "USA" $[REGION]
-    set ACTLOG 00020212
-else
-echo "This script is only valid for\nUSA/JPN/EUR/KOR region 3DS systems."
-goto abort
-end
 
 # activity log and ptm backup
 if not ask "Create a PTM and Activity Log\nsavedata backup in\n$[GM9OUT]?"
 	echo "PTM and Activity Log\nbackup not created."
 	goto abort
 end
-
+if chk "CHN" $[REGION]
+	set ACTLOG 00026200
+elif chk "EUR" $[REGION]
+	set ACTLOG 00020222
+elif chk "JPN" $[REGION]
+	set ACTLOG 00020202
+elif chk "KOR" $[REGION]
+	set ACTLOG 00020272
+elif chk "USA" $[REGION]
+	set ACTLOG 00020212
+elif chk "TWN" $[REGION]
+	set ACTLOG 00028200
+end
 findnot $[GM9OUT]/$[DATESTAMP]_$[SERIAL]_00010022_??? OUTPATH
 cp 1:/data/$[SYSID0]/sysdata/00010022/00000000 $[OUTPATH]
 echo "PTM savedata backup created succesfully:\n$[OUTPATH]"
@@ -34,8 +33,10 @@ if not ask "This will clear all data from the\nPTM module and Activity Log.\nCon
 	echo "PTM and Activity Log reset failed."
 	goto abort
 end
-
-allow -a 1:/
+if not allow -a 1:/
+	echo "PTM and Activity Log reset failed."
+	goto abort
+end
 rm -o -s 1:/data/$[SYSID0]/sysdata/00010022/00000000
 rm -o -s 1:/data/$[SYSID0]/sysdata/$[ACTLOG]/00000000
 echo "PTM and Activity Log reset successful."

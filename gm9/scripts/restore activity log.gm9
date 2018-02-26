@@ -1,20 +1,7 @@
-# restore ptm and activity log data (USA/JPN/EUR/KOR only)
+# restore ptm and activity log data (any region)
 # remove all titles and data logged by the ptm module and activity log
 # last update: 02/25/2018
 # https://github.com/zweilous/gm9scripts/
-
-if chk "EUR" $[REGION]
-    set ACTLOG 00020222
-elif chk "JPN" $[REGION]
-    set ACTLOG 00020202
-elif chk "KOR" $[REGION]
-    set ACTLOG 00020272
-elif chk "USA" $[REGION]
-    set ACTLOG 00020212
-else
-echo "This script is only valid for\nUSA/JPN/EUR/KOR region 3DS systems."
-goto abort
-end
 
 @start
 labelsel -o -s "Select a restore option." re_*
@@ -48,6 +35,19 @@ goto start
 
 # restore activity log data
 @re_restore_activity_log_data
+if chk "CHN" $[REGION]
+	set ACTLOG 00026200
+elif chk "EUR" $[REGION]
+	set ACTLOG 00020222
+elif chk "JPN" $[REGION]
+	set ACTLOG 00020202
+elif chk "KOR" $[REGION]
+	set ACTLOG 00020272
+elif chk "USA" $[REGION]
+	set ACTLOG 00020212
+elif chk "TWN" $[REGION]
+	set ACTLOG 00028200
+end
 if not filesel "Select an Activity Log savedata backup." $[GM9OUT]/??????_$[SERIAL]_$[ACTLOG]_??? RESTORE
 	goto start
 end
