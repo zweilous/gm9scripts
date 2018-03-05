@@ -21,6 +21,6 @@ for use with [godmode9](https://github.com/d0k3/GodMode9).
   - restore a backup of ptm or activity log savedata to sysnand
     - must be located in the output folder with the following format: `yymmdd_serial_title_###`
     - to be used with the backup functions from the "[reset activity log](gm9/scripts/reset%20activity%20log.gm9)" script
-5. [swap splashpin.bin](gm9/scripts/swap%20splashpin.bin.gm9)
+6. [swap splashpin.bin](gm9/scripts/swap%20splashpin.bin.gm9)
   - swap the current `splashpin.bin` located in `/luma` with a backup in `/luma/splashpin`
     - files placed in `/luma/splashpin` must be named `splashpin_###.bin` to be detected
