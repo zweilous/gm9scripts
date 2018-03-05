@@ -1,0 +1,26 @@
+# swap splashpin.bin
+# swap current splashpin.bin in 0:/luma/ with a backup in 0:/luma/splashpin
+# last update: 03/05/2018
+# https://github.com/zweilous/gm9scripts/
+
+set SPLASHPIN 0:/luma/splashpin.bin
+
+@start
+if not filesel "Select a 'splashpin.bin' to restore." 0:/luma/splashpin/splashpin_???.bin RESTORE
+	goto cancel
+end
+findnot 0:/luma/splashpin/splashpin_???.bin BACKUP
+mv -w -n $[SPLASHPIN] $[BACKUP]
+mv -w -n $[RESTORE] $[SPLASHPIN]
+echo "Current splashpin.bin swapped with\n$[RESTORE]"
+goto abort
+
+@cancel
+if ask "Cancel this operation?"
+	goto abort
+else
+	goto start
+end
+
+# abort
+@abort
