@@ -11,10 +11,10 @@ if not find $[BACKUPDIR] NULL
 end
 
 @start
-if not filesel "Select a 'splashpin.bin' to restore." 0:/luma/splashpin/splashpin_???.bin RESTORE
+if not filesel "Select a 'splashpin.bin' to restore." $[BACKUPDIR]/splashpin_???.bin RESTORE
 	goto cancel
 end
-findnot 0:/luma/splashpin/splashpin_???.bin BACKUP
+findnot $[BACKUPDIR]/splashpin_???.bin BACKUP
 mv -w -n $[SPLASHPIN] $[BACKUP]
 mv -w -n $[RESTORE] $[SPLASHPIN]
 echo "Current splashpin.bin swapped with\n$[RESTORE]"
