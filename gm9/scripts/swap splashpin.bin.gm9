@@ -4,6 +4,11 @@
 # https://github.com/zweilous/gm9scripts/
 
 set SPLASHPIN 0:/luma/splashpin.bin
+set BACKUPDIR 0:/luma/splashpin
+
+if not find $[BACKUPDIR] NULL
+	mkdir $[BACKUPDIR]
+end
 
 @start
 if not filesel "Select a 'splashpin.bin' to restore." 0:/luma/splashpin/splashpin_???.bin RESTORE
