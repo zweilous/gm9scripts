@@ -51,10 +51,7 @@ end
 if not filesel "Select an Activity Log savedata backup." $[GM9OUT]/??????_$[SERIAL]_$[ACTLOG]_??? RESTORE
 	goto start
 end
-if not ask "Restore this Activity Log backup?\n$[RESTORE]"
-	goto start
-end
-if not ask "WARNING: This will override\nyour existing data.\nContinue?"
+if not ask "Restore this Activity Log backup?\n$[RESTORE]\nWARNING: This will override\nyour existing data."
 	goto start
 end
 if not allow -a 1:/
