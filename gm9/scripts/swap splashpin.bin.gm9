@@ -18,7 +18,11 @@ findnot $[BACKUPDIR]/splashpin_???.bin BACKUP
 mv -w -n $[SPLASHPIN] $[BACKUP]
 mv -w -n $[RESTORE] $[SPLASHPIN]
 echo "Current splashpin.bin swapped with\n$[RESTORE]"
-goto abort
+if ask "Reboot the system now?"
+	reboot
+else
+	goto abort
+end
 
 @cancel
 if ask "Cancel this operation?"
