@@ -22,9 +22,6 @@ end
 if not ask "Restore this PTM backup?\n$[RESTORE]"
 	goto start
 end
-if not ask "WARNING: This will override\nyour existing data.\nContinue?"
-	goto start
-end
 if not allow -a 1:/
 	goto start
 end
@@ -51,7 +48,7 @@ end
 if not filesel "Select an Activity Log savedata backup." $[GM9OUT]/??????_$[SERIAL]_$[ACTLOG]_??? RESTORE
 	goto start
 end
-if not ask "Restore this Activity Log backup?\n$[RESTORE]\nWARNING: This will override\nyour existing data."
+if not ask "Restore this Activity Log backup?\n$[RESTORE]"
 	goto start
 end
 if not allow -a 1:/
