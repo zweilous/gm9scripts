@@ -9,6 +9,10 @@ set BACKUPDIR 0:/luma/splashpin
 if not find $[BACKUPDIR] NULL
 	mkdir $[BACKUPDIR]
 end
+if not find $[SPLASHPIN] NULL
+	echo "$[SPLASHPIN] not found.\nFile needed to continue."
+	go to abort
+end
 
 @start
 if not filesel "Select a 'splashpin.bin' to restore." $[BACKUPDIR]/splashpin_???.bin RESTORE
@@ -17,7 +21,7 @@ end
 findnot $[BACKUPDIR]/splashpin_???.bin BACKUP
 mv -w -n $[SPLASHPIN] $[BACKUP]
 mv -w -n $[RESTORE] $[SPLASHPIN]
-echo "Current splashpin.bin swapped with\n$[RESTORE]"
+echo "Current 'splashpin.bin' swapped with\n$[RESTORE]"
 if ask "Reboot the system now?"
 	reboot
 else
