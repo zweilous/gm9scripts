@@ -1,13 +1,9 @@
 # clear ptm and activity log data (any region)
 # remove all titles and data logged by the ptm module and activity log
-# last update: 02/25/2018
+# last update: 03/31/2018
 # https://github.com/zweilous/gm9scripts/
 
 # ptm and activity log backup
-if not ask "Create a PTM and Activity Log\nsavedata backup in\n$[GM9OUT]?"
-	echo "PTM and Activity Log\nbackup not created."
-	goto reset
-end
 if chk "CHN" $[REGION]
 	set ACTLOG 00020262
 elif chk "EUR" $[REGION]
@@ -20,6 +16,10 @@ elif chk "USA" $[REGION]
 	set ACTLOG 00020212
 elif chk "TWN" $[REGION]
 	set ACTLOG 00020282
+end
+if not ask "Create a PTM and Activity Log\nsavedata backup in\n$[GM9OUT]?"
+	echo "PTM and Activity Log\nbackup not created."
+	goto reset
 end
 findnot $[GM9OUT]/$[DATESTAMP]_$[SERIAL]_00010022_??? OUTPATH
 cp 1:/data/$[SYSID0]/sysdata/00010022/00000000 $[OUTPATH]
